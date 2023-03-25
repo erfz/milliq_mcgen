@@ -1,3 +1,4 @@
+from __future__ import print_function
 import argparse
 
 parser = argparse.ArgumentParser(description="Propagate mCPs or muons to the milliqan detector, starting from root files of four-vectors")
@@ -156,7 +157,7 @@ Nevt = tin.GetEntries()
 evt_start = 0
 # Nevt = 1
 # evt_start = 48538
-print "Simulating {0} events, 2 trajectories per event".format(Nevt)
+print("Simulating {0} events, 2 trajectories per event".format(Nevt))
 trajs = []
 n_hits = 0
 it = range(evt_start, evt_start+Nevt)
@@ -168,7 +169,7 @@ if "redirect" not in args.input_file:
 for i in it:
     
     if (not loaded_tqdm or not using_tqdm) and i%10000 == 0:
-        print "{0} / {1}".format(i, Nevt)
+        print("{0} / {1}".format(i, Nevt))
 
     tin.GetEntry(i)
     for b in bs:
@@ -276,11 +277,11 @@ for i in it:
     for b in bs:
         ret = b.Fill()
         if ret < 0:
-            print "BAD BRANCH WRITE:", i, b.GetName()
-            print "    does_hit_m:", does_hit_m[0]
-            print "    does_hit_p:", does_hit_p[0]
-            print "      hit_m_p4:", hit_m_p4.Px(), hit_m_p4.Py(), hit_m_p4.Pz()
-            print "      hit_p_p4:", hit_p_p4.Px(), hit_p_p4.Py(), hit_p_p4.Pz()
+            print("BAD BRANCH WRITE:", i, b.GetName())
+            print("    does_hit_m:", does_hit_m[0])
+            print("    does_hit_p:", does_hit_p[0])
+            print("      hit_m_p4:", hit_m_p4.Px(), hit_m_p4.Py(), hit_m_p4.Pz())
+            print("      hit_p_p4:", hit_p_p4.Px(), hit_p_p4.Py(), hit_p_p4.Pz())
             # print "    trying to write again..."
             # b.GetEntry(i)
             # ret = b.Fill()
@@ -295,7 +296,7 @@ tout = tout.CopyTree("(does_hit_m || does_hit_p) && Entry$ < {0}".format(Nevt))
 
 # compute hit efficiency and add to tree
 hit_eff = np.array([float(tout.GetEntries())/Nevt], dtype=float)
-print "Hit efficiency:", hit_eff[0]
+print("Hit efficiency:", hit_eff[0])
 b = tout.Branch("hit_eff", hit_eff, "hit_eff/D")
 for i in range(tout.GetEntries()):
     b.GetEntry(i)
@@ -331,7 +332,7 @@ if DO_DRAW:
         #     DrawLine(idict["x_int"], idict["x_int"], is3d=True, linestyle="None", marker='o', color='r')
         isects = mdet.find_entries_exits(traj)
         for isect in isects:
-            print "HIT", isect[0], mdet.lrc_to_idx(*isect[0])
+            print("HIT", isect[0], mdet.lrc_to_idx(*isect[0]))
             hit_boxes.add(isect[0])
             c = colors[i % len(colors)]
             DrawLine(isect[1], isect[1], is3d=True, linestyle='None', marker='o', mfc=c, mec='k')
