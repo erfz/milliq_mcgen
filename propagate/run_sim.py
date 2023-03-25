@@ -3,7 +3,7 @@ import argparse
 parser = argparse.ArgumentParser(description="Propagate mCPs or muons to the milliqan detector, starting from root files of four-vectors")
 parser.add_argument('input_file', help='input ROOT file containing the four-vectors to propagate')
 parser.add_argument('-q', '--charge', dest='charge', default="0.1", help="charge of the mCP, or \"mu\" to run in muon mode")
-parser.add_argument('-c', '--config', dest='config', default='MQ', help="configuration to use. Default is \"MQ\" for standard Milliqan")
+parser.add_argument('-c', '--config', dest='config', default='MQ3', help="configuration to use. Default is \"MQ3\" for run 3 Milliqan")
 parser.add_argument('-d', '--density_mult', dest='density_mult', default=1.0, type=float, help="uniformly scale the density of all materials by this number")
 parser.add_argument('-s', '--save_dist', dest='save_dist', default=0.1, type=float, help="distance before detector face to save four-vectors (default 0.1m)")
 args = parser.parse_args()

@@ -19,6 +19,21 @@ class Config:
             self.m_vals = [0.01, 0.05, 0.1,  0.2, 0.3, 0.4, 0.5, 0.7, 1.0, 1.4, 1.6, 1.8, 2.0, 3.0, 4.0, 5.0, 7.0, 10.0]
             self.pt_cuts = [0.10, 0.15, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0, 1.2, 1.2, 1.4, 1.8, 2.2, 2.5, 3.0, 3.5]
 
+        elif name == "MQ3":      # Run 3 
+            self.mat_setup = 'cms'
+            self.bfield = 'cms'            
+            self.dist_to_detector = 33.
+            self.eta = 0.11
+            self.amount_of_rock = 17.
+            self.max_nsteps = 3800
+            self.etamin = -0.1      # self.eta - 0.18
+            self.etamax = 0.3       # self.eta + 0.18
+            self.phimin = -0.1      # -0.03 
+            self.phimax = 2.4
+            self.m_vals = [0.01, 0.05, 0.1,  0.2, 0.3, 0.4, 0.5, 0.7, 1.0, 1.4, 1.6, 1.8, 2.0, 3.0, 4.0, 5.0, 7.0, 10.0]
+            self.pt_cuts = [0.10, 0.15, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0, 1.2, 1.2, 1.4, 1.8, 2.2, 2.5, 3.0, 3.5]
+
+            
         elif name == "mapp_theta25":
             self.mat_setup = 'justrock'
             self.bfield = 'none'
