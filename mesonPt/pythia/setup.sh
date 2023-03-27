@@ -1,6 +1,6 @@
 #! /bin/bash
 
-ver=pythia8243
+ver=pythia8245
 
 if [ ! -d ${ver} ]; then
     wget http://home.thep.lu.se/~torbjorn/pythia8/${ver}.tgz

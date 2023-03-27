@@ -1,8 +1,8 @@
 # Set the shell.
 SHELL=/usr/bin/env bash
 
-PREFIX_LIB=./pythia8243/lib
-PREFIX_INCLUDE=./pythia8243/include
+PREFIX_LIB=./pythia8245/lib
+PREFIX_INCLUDE=./pythia8245/include
 
 # Compilation flags (see ./configure --help for further documentation).
 CXX=g++
