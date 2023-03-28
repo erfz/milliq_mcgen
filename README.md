@@ -29,6 +29,6 @@ A collection of tools for generating signal Monte Carlo for the milliQan experim
 
 `utils`: helper C++ functions to compute branching ratios and decay kinematics
 
-`propagate`: script to propagate generated mCP's through the CMS environment with the [MilliqanSim](https://github.com/bjmarsh/MilliqanSim/tree/master) package
+`propagate`: script to propagate generated mCP's through the CMS environment with the [MilliqanSim](https://github.com/claudiocc1/MilliqanSim) package
 
 `muons`: data and utilities for SM muon production (QCD, W, Z)
