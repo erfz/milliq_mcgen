@@ -22,7 +22,8 @@ try:
 except ImportError:
     tqdm = lambda x:x
     loaded_tqdm = False
-
+    
+pyVersion = sys.version_info[0]
 DO_DRAW = False
    
 cfg = Config(args.config)
@@ -41,10 +42,12 @@ if not os.path.exists("MilliqanSim/bfield/bfield_coarse.pkl"):
     os.system("gfal-copy -p -f -t 4200 --verbose gsiftp://gftp.t2.ucsd.edu/hadoop/cms/store/user/bemarsh/milliqan/bfield/bfield_coarse.pkl.tar.xz file://{0}/MilliqanSim/bfield/bfield_coarse.pkl.tar.xz".format(os.getcwd()))
     os.system("tar xf MilliqanSim/bfield/bfield_coarse.pkl.tar.xz -C MilliqanSim/bfield/")
 
+bFile = "MilliqanSim/bfield/bfield_coarse.pkl"
+if pyVersion == 3: bFile = "MilliqanSim/bfield/bfield_coarse_p3.pkl"
 env = Environment(
     mat_setup = cfg.mat_setup,
     bfield = cfg.bfield,
-    bfield_file = "MilliqanSim/bfield/bfield_coarse.pkl" if cfg.bfield=='cms' else None,
+    bfield_file = bFile if cfg.bfield=='cms' else None,
     rock_begins = cfg.dist_to_detector - cfg.amount_of_rock - 0.20,
     rock_ends = cfg.dist_to_detector - 0.20,
     density_mult = args.density_mult,
