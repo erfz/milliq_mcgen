@@ -7,7 +7,8 @@ iseed = 0
 model = "mq5"
 carddir = "./runs/out_{model}_13tev_v1/".format(model=model)
 nevents=1000000
-njobs_per_mass = 90
+#  njobs_per_mass = 90
+njobs_per_mass = 1
 # carddir = "./runs/out_{model}_13tev_xsecscan/".format(model=model)
 # nevents=10000
 # njobs_per_mass = 1
@@ -50,8 +51,8 @@ def get_card_mq(
     
     set param_card MASS {pid} {mass}
     {kappaparam}
-    set run_card ebeam1 6500.0
-    set run_card ebeam2 6500.0
+    set run_card ebeam1 6800.0
+    set run_card ebeam2 6800.0
     set run_card nevents {nevents}
     set run_card use_syst False
 
