@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
-latest="https://launchpad.net/mg5amcnlo/2.0/2.6.x/+download/MG5_aMC_v2.6.5.tar.gz"
+# latest="https://launchpad.net/mg5amcnlo/2.0/2.6.x/+download/MG5_aMC_v2.6.5.tar.gz"
+latest="https://launchpad.net/mg5amcnlo/2.0/2.6.x/+download/MG5_aMC_v2.6.7.tar.gz"
 
 export FTINTBASE="$( cd "$(dirname "$BASH_SOURCE")" ; pwd -P )"
 
