@@ -23,7 +23,24 @@ pp -> c -> mu
 b-incl-to-mu.root
 -----------------
 Output of command
+
 hadd b-incl-to-mu.root b-to-mu.root b-to-c-to-mu.root
 This adds the uncertainties linearly, as they probably should,
 and is the root file to be used for the generation of all
 muons from b decays (including the cascade b->c->mu)
+
+In this folder:
+
+XX_Run2_Run3_comparisons.pdf
+----------------------------
+Comparisons of Run2 and Run3 muon pt spectra.
+The blue band is the Run2 variation as a function of Pt from the central value.
+(Dashed = up/down, Solid = central = 1.0)
+The red band is the ratio of the Run3 spectrum to the central Run2 spectrum.
+(Dashed = up/down run3 divided by run2 central, Solid = run3 central/run2 central)
+Note that the PDFs have changed between Run2 and Run3.
+
+compare_Run2_Run3.C
+-------------------
+makes the XX_Run2_Run3_comparisons.pdf file 
+(you need to comment/uncomment filenames at the top)
