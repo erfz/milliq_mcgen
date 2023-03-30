@@ -1,6 +1,8 @@
 Muon spectra from heavy flavor decays from
 http://www.lpthe.jussieu.fr/~cacciari/fonll/fonllform.html
 
+These are in the run2 and run3 directories
+
 Main requirement is abs(eta)<1.
 For other details see the text files.
 
