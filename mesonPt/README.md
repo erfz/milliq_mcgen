@@ -34,4 +34,4 @@ Possible tunes are 0 for Monash2013, 1 for CUETP8M1, 7 for A2-CTEQ6L1, and 8 for
 Tools for batch submission are in `looper/looper/batchsubmit` or `pythia/batchsubmit`.
 
 Once done with either method, `hadd` all output files somewhere. 
-The script `stitch.py` makes stitched histograms for all particles, in `pt_dists.root`.
+The script `stitch.py` makes stitched histograms for all particles, in `pt_dists.root`. The current `pt_dists.root` file is directly copied from Bennett's old repository, and it likely contains a bugged pt distribution for the phi meson. The corrected meson pt distributions for Run 3 (Run 2) are stored in `pt_dists_run3.root` (`pt_dists_run2.root`) and use Pythia 8 Monash2013 Tune for all mesons except for phi mesons which are modelled with Pythia 6 DW Tune.
