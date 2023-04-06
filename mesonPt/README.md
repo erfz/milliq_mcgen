@@ -1,7 +1,7 @@
 Code to obtain cross sections and pT distributions for pi0, rho,
 omega, phi, eta, etaprime production, as well as muons from pi/K
 decays and from heavy flavor (Heavy flavor muons however should be
-taken from the ../muonw folder).
+taken from the ../muon folder).
 
 The distributions are stored in `pt_dists*.root`, (see comment at the end). y-axis units are
 "particles per minbias event per 50 MeV bin in abs(eta)<2".
