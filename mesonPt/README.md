@@ -43,4 +43,13 @@ Once done with either method, `hadd` all output files somewhere.
 The script `stitch.py` makes stitched histograms for all particles, in
 `pt_dists*.root`.
 
-The current `pt_dists.root` file is directly copied from Bennett's old repository, and it likely contains a bugged pt distribution for the phi meson. The corrected meson pt distributions for Run 3 (Run 2) are stored in `pt_dists_run3.root` (`pt_dists_run2.root`) and use Pythia 8 Monash2013 Tune for all mesons except for phi mesons which are modelled with Pythia 6 DW Tune.
+The current `pt_dists.root` file is directly copied from Bennett's old
+repository, and it likely contains a bugged pt distribution for the
+phi meson. The corrected meson pt distributions for Run 3 (Run 2) are
+stored in `pt_dists_run3.root` (`pt_dists_run2.root`) and use Pythia 8
+Monash2013 Tune for all mesons except for phi mesons which are
+modelled with Pythia 6 DW Tune.  Ratio of Pt distributions between the
+new (Run 3) and old (Run 2, Bennett's repository) meson Pt
+distributions
+are displayed in `mesons_run3_vs_run2.pdf`.  Finally, `mesons_run3_vs_run2.pdf`
+has Pr distributions for pi/K decays (Run 3) and a Run 3 to Run 2 comparison. 
