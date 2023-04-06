@@ -1,6 +1,12 @@
-Code to obtain cross sections and pT distributions for pi0, rho, omega, phi, eta, etaprime production.
-The distributions are stored in `pt_dists.root`. y-axis units are "particles per minbias event per 50 MeV bin".
-So, the total cross section for a given particle is the sum of all bin contents ("particles per minbias event")
+Code to obtain cross sections and pT distributions for pi0, rho,
+omega, phi, eta, etaprime production, as well as muons from pi/K
+decays and from heavy flavor (Heavy flavor muons however should be
+taken from the ../muonw folder).
+
+The distributions are stored in `pt_dists*.root`, (see comment at the end). y-axis units are
+"particles per minbias event per 50 MeV bin in abs(eta)<2".
+So, the total cross section for a given particle is the sum of all bin
+contents ("particles per minbias event in abs(eta)<2")
 times the MinBias cross section (CMS recommends 69.2 mb @ 13 TeV, for demonstrator paper we ended up using 80 mb found by ATLAS and various tools).
 
 This was originally done using CMS MC samples (Summer16, with TuneCUETP8M1).
@@ -34,4 +40,7 @@ Possible tunes are 0 for Monash2013, 1 for CUETP8M1, 7 for A2-CTEQ6L1, and 8 for
 Tools for batch submission are in `looper/looper/batchsubmit` or `pythia/batchsubmit`.
 
 Once done with either method, `hadd` all output files somewhere. 
-The script `stitch.py` makes stitched histograms for all particles, in `pt_dists.root`. The current `pt_dists.root` file is directly copied from Bennett's old repository, and it likely contains a bugged pt distribution for the phi meson. The corrected meson pt distributions for Run 3 (Run 2) are stored in `pt_dists_run3.root` (`pt_dists_run2.root`) and use Pythia 8 Monash2013 Tune for all mesons except for phi mesons which are modelled with Pythia 6 DW Tune.
+The script `stitch.py` makes stitched histograms for all particles, in
+`pt_dists*.root`.
+
+The current `pt_dists.root` file is directly copied from Bennett's old repository, and it likely contains a bugged pt distribution for the phi meson. The corrected meson pt distributions for Run 3 (Run 2) are stored in `pt_dists_run3.root` (`pt_dists_run2.root`) and use Pythia 8 Monash2013 Tune for all mesons except for phi mesons which are modelled with Pythia 6 DW Tune.
