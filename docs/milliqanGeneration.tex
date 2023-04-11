@@ -8,12 +8,17 @@
 \usepackage{chngpage}
 \usepackage{calc}
 \usepackage{xspace}
+\usepackage{float}
+
 
 \newcommand{\pythia}{\textsc{Pythia}\xspace}
 
 \title{Generation of milliCharged particles at the LHC}
 
-\author{C. Campagnari, B. Marsh (UCSB), F. Golf (UNL)}
+\author{C. Campagnari,
+  B. Marsh (UCSB)\thanks{Run 2 version of the note only},
+  F. Golf (Nebraska)\footnotemark[1],
+  F. Setti (UCSB)}
 
 \begin{document}
 \maketitle
@@ -691,21 +696,23 @@ for this is simply that the CTEQ6.6 pdf is not an option in the \\
      tool for 13.6 TeV.  Comparisons of Run 2 vs. Run 3 cross-sectiosn as a function
      of $P_T$ are shhown in Figure~\ref{fig:psi_run_comparison} 
 
-\begin{figure}
+     \begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.45\linewidth]{../oniaFromB/psi_fromB_Run2_Run3_comparison.pdf}
     \includegraphics[width=0.45\linewidth]{../oniaFromB/psiprime_fromB_Run2_Run3_comparison.pdf}
     
-    \caption{\protect Run 2 vs. Run 3 comparisons of of the J/$\psi$ (left) and
-      $\psi'$ (right) $P_T$ spectra
-      from b-decays.  The blue band is the Run2 variation as a function of Pt from the central value.
-(Dashed blue = up/down divided by central, Solid blue = central = 1.0).
-The red band is the ratio of the central Run 3 spectrum to the central Run2 spectrum.
-(Dashed red = up/down Run 3 divided by Run 2 central, Solid red = Run 3 central/Run 2 central)
+    \caption{\protect Run 2 vs. Run 3 comparisons of of the J/$\psi$ (left) and 
+      $\psi'$ (right) $P_T$ spectra 
+      from b-decays.  The blue band is the Run2 variation as a function of Pt from the central value. 
+(Dashed blue = up/down divided by central, Solid blue = central = 1.0). 
+The red band is the ratio of the central Run 3 spectrum to the central Run2 spectrum. 
+(Dashed red = up/down Run 3 divided by Run 2 central, Solid red = Run 3 central/Run 2 central) 
 Note that the PDFs have changed between Run2 and Run3.  See text for details.}
 \label{fig:psi_run_comparison}
 \end{center}
 \end{figure}
+
+\clearpage
 
 \subsection{Direct bottonium - Run 3}
 \label{sec:upsilon3}
@@ -716,7 +723,7 @@ the direct bottonium 13 TeV $P_T$ spectra in
 Figure~\ref{fig:upsFinal} up to 13.6 TeV.  The Run 2 to Run 3 scale factors are
 displayed in Figure~\ref{fig:ups_run_2_run_3_sf}.
 
-\begin{figure}
+\begin{figure}[H]
   \begin{center}
     \includegraphics[width=0.95\linewidth]{../oniaDirect/upsilon/Run2_to_Run3_scale.pdf}
     \caption{\protect Run 2 to Run 3 scale factors for $\Upsilon$ production.  These
@@ -727,6 +734,34 @@ displayed in Figure~\ref{fig:ups_run_2_run_3_sf}.
 \end{center}
 \end{figure}
 
+\clearpage
+\subsection{$\pi^0$, $\eta$, $\eta'$, $\phi$, $\rho$, and $\omega$ -
+  Run 3}
+\label{sec:mesons3}
+We have regenerate these from Pythia 8 and Pythia 6, as discussed in
+Section~\ref{sec:meson}.  In Fig.~\ref{fig:meson_run_comparison} we
+show a comparison between the Run 2 and the Run 3 spectra.
+We find that the Run 3 spectra are a few percent higher than the Run 2
+spectra, except for the $\phi$ spectrum.  This spectrum is supposed
+to have been generated with Pythia 6, whereas all the other spectra
+are generated with Pythia 8.  We have double-checked the current (Run
+3)
+spectrum and we believed it to be corect.  We do not understand why
+it differs so much from the previous (Run 2) spectrum.  We suspect a
+bug
+in the Run 2 spectrum
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=\linewidth]{../mesonPt/mesons_run3_vs_run2.pdf}
+    \caption{\protect Run 2 vs. Run 3 ratio of the meson
+      spectra. See text for detail and comments about the $\phi$ spectrum.}
+\label{fig:meson_run_comparison}
+\end{center}
+\end{figure}
+
+\clearpage
+
 \subsection{Muons from the $pp$ interaction}
 These muons are used in the experiment as a control sample.
 Their generation was not described in the Run 2 version of the note.  For completeness we describe it here.
@@ -736,7 +771,7 @@ There are $b \to \mu$, $b \to c \mu$, and $c \to \mu$.  As is the case
 for charmonium states from bottom decays, we obtain $p_T$ distributions for these muons from a state of the art heavy flavor calculation\cite{Cacciari:2012ny,Cacciari:2015fta}, see Fig.~\ref{fig:bmuon}.  The differences between the Run 2 and Run 3
 distributions are minimal (Fig.~\ref{fig:bmuon23}).
 
-\begin{figure}
+\begin{figure}[H]
 \includegraphics[width=0.31\linewidth]{../muons/data/run3/b-to-mu.pdf}  
 \includegraphics[width=0.31\linewidth]{../muons/data/run3/b-to-c-to-mu.pdf}  
 \includegraphics[width=0.31\linewidth]{../muons/data/run3/c-to-mu.pdf}  
@@ -748,7 +783,7 @@ are integrated over $|\eta|<1.0$.}
   \label{fig:bmuon}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
 \includegraphics[width=0.31\linewidth]{../muons/data/b-to-mu_Run2_Run3_comparison.pdf}
 \includegraphics[width=0.31\linewidth]{../muons/data/b-to-c-to-mu_Run2_Run3_comparison.pdf}
 \includegraphics[width=0.31\linewidth]{../muons/data/c-to-mu_Run2_Run3_comparison.pdf}
