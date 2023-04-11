@@ -719,22 +719,45 @@ Note that the PDFs have changed between Run2 and Run3.  See text for details.}
 The quadratic functions from Figure~\ref{fig:upsratio} were used to extrapolate
 the LHCb 7 TeV data to 13 TeV (see discussion in Section~\ref{sec:upsilon}).
 We use these same functions to (linearly) further extrapolate 
-the direct bottonium 13 TeV $P_T$ spectra in
-Figure~\ref{fig:upsFinal} up to 13.6 TeV.  The Run 2 to Run 3 scale factors are
+the direct bottonium 13 TeV $P_T$ spectra in Figure~\ref{fig:upsFinal} up to 13.6 TeV.
+
+{\bf HOWEVER:} The $P_T$ spectrum used in the generation of the events
+was within $|y|<1.2$.  The event generation assumed a flat rapidity
+spectrum, which is a good assumption, but it also assumed $\eta = y$ which
+is not a good  assumption at low $P_T$.  (Suffices to say that at
+$P_T=0$ the polar angle $\theta=\pm \pi$).  If $\frac{dN}{dy} = C$ is
+flat, then $\frac{dN}{d\eta}= C \frac{d\eta}{dy}$.  Since the milliqan
+detector is at $\eta=0.11$, we now also rescale the bottonium spectra
+by an addotional factor of $\frac{d\eta}{dy}$ evaluated at $\eta=0.11$.
+
+The factor $\frac{d\eta}{dy}$ evaluated at $\eta=0.11$ depends on
+the mass and the $p_T$.  This factor is shown in
+Fig.~\ref{fig:detady} for $\Upsilon$(1S) and $J\psi$ as a function of $p_T$.
+The total Run 2 to Run 3 scale factors are
 displayed in Figure~\ref{fig:ups_run_2_run_3_sf}.
 
 \begin{figure}[H]
   \begin{center}
+    \includegraphics[width=0.70\linewidth]{../misc/deta-dy.pdf}
+    \caption{\protect $\frac{d\eta}{dy}$ evaluated at $\eta=0.11$ as a
+    gunction of $P_T$}
+\label{fig:detady}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
     \includegraphics[width=0.95\linewidth]{../oniaDirect/upsilon/Run2_to_Run3_scale.pdf}
-    \caption{\protect Run 2 to Run 3 scale factors for $\Upsilon$ production.  These
-      are further extrapolations from the LHCb 7 to 13 TeV ratios
-      of Figure~\ref{fig:upsratio}.  Scale factors are truncated at high $P_T$
-      where the LHCb data peters out.}
+    \caption{\protect Run 2 to Run 3 scale factors for $\Upsilon$ production.  These 
+      are further extrapolations from the LHCb 7 to 13 TeV ratios 
+      of Figure~\ref{fig:upsratio} and include $\frac{d\eta}{dy}$
+      evaluated at $\eta=0.11$
+      as explained in the text.}
 \label{fig:ups_run_2_run_3_sf}
 \end{center}
 \end{figure}
 
-\clearpage
+% \clearpage
 \subsection{$\pi^0$, $\eta$, $\eta'$, $\phi$, $\rho$, and $\omega$ -
   Run 3}
 \label{sec:mesons3}
