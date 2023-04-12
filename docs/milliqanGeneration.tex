@@ -797,15 +797,15 @@ The overall changes from Run 2 are summarized in Fig.\ref{fig:psi_direct_run_com
 \subsection{$\pi^0$, $\eta$, $\eta'$, $\phi$, $\rho$, and $\omega$ -
   Run 3}
 \label{sec:mesons3}
-We have regenerate these from Pythia 8 and Pythia 6, as discussed in
-Section~\ref{sec:meson}.  In Fig.~\ref{fig:meson_run_comparison} we
+We have regenerated these from Pythia 8 and Pythia 6, as discussed in
+Section~\ref{sec:mesons}.  In Fig.~\ref{fig:meson_run_comparison} we
 show a comparison between the Run 2 and the Run 3 spectra.
 We find that the Run 3 spectra are a few percent higher than the Run 2
 spectra, except for the $\phi$ spectrum.  This spectrum is supposed
 to have been generated with Pythia 6, whereas all the other spectra
 are generated with Pythia 8.  We have double-checked the current (Run
 3)
-spectrum and we believed it to be corect.  We do not understand why
+spectrum and we believe it to be corect.  We do not understand why
 it differs so much from the previous (Run 2) spectrum.  We suspect a
 bug
 in the Run 2 spectrum
@@ -821,12 +821,12 @@ in the Run 2 spectrum
 
 \clearpage
 
-\subsection{Muons from the $pp$ interaction}
+\section{Muons from the $pp$ interaction}
 These muons are used in the experiment as a control sample.
 Their generation was not described in the Run 2 version of the note.  For completeness we describe it here.
 
-\subsubsection{Muons from Heavy Flavor decays}
-There are $b \to \mu$, $b \to c \mu$, and $c \to \mu$.  As is the case
+\subsection{Muons from Heavy Flavor decays}
+These are $b \to \mu$, $b \to c \to \mu$, and $c \to \mu$.  As is the case
 for charmonium states from bottom decays, we obtain $p_T$ distributions for these muons from a state of the art heavy flavor calculation\cite{Cacciari:2012ny,Cacciari:2015fta}, see Fig.~\ref{fig:bmuon}.  The differences between the Run 2 and Run 3
 distributions are minimal (Fig.~\ref{fig:bmuon23}).
 
@@ -855,6 +855,31 @@ The red band is the ratio of the central Run 3 spectrum to the central Run2 spec
 Note that the PDFs have changed between Run2 and Run3, see discussion
 in Section~\ref{sec:bpsi3}.}
   \label{fig:bmuon23}
+\end{figure}
+
+\subsection{Muons from pions and kaons decays in flight}
+\label{sec:decays-in-flight}
+These are generated with Pythia 8 in the same process that collects the
+$P_T$ spectra of mesons as described in Sections~\ref{sec:mesons} and~\ref{sec:mesons3}.
+Decays are generated within a cylinder of radius 2 m and length $\pm 4$ m.
+The radius of the front face of the CMS HB is $r=1.81$ m, and the front
+face of the CMS HE is at $z = \pm 3.9$ m, so this choice of geometry
+is reasonable (also accounting for the fact that pions and kaons will not
+interact as soon as they enter the HCAL).
+
+The $P_T$ spectrum of decyed muons is collected in a histograms of
+``muons per mimimum bas event per 50 MeV'' in $|\eta|<2$.
+Before propagation, this spectrum is rescaled to $|\eta|<1$
+through a multiplication by 1.13/2 where the factor of 1.13 was
+derived in Run2 from a MC study\footnote{Details of this study have been lost.}.
+The decay-in-flight muon spectrum and the Run 3 to Run 2 comparison is
+shown in Fig.~\ref{fig:dof_muons}.
+
+\begin{figure}[H]
+\includegraphics[width=1.0\linewidth]{../mesonPt/mu_nonbc.pdf}  
+\caption{Run 3 transverse momentum spectrum of decay-in-flight
+  muons (left), and Run 3 to Run 2 comparison.}
+  \label{fig:dof_muons}
 \end{figure}
 
 
