@@ -82,6 +82,22 @@
       upRatio->SetTitle("Psiprime");
     }
 
+
+
+    // More stuff
+    upRatio->GetXaxis()->SetLabelSize(0.05);
+    upRatio->GetYaxis()->SetLabelSize(0.05);
+    // upRatio->SetTitleSize(2);
+    // c1->SetBottomMargin(0.2);
+    int lw = 3;
+    cenRatio->SetLineWidth(lw);
+    upRatio->SetLineWidth(lw);
+    downRatio->SetLineWidth(lw);
+    new_cenRatio->SetLineWidth(lw);
+    new_upRatio->SetLineWidth(lw);
+    new_downRatio->SetLineWidth(lw);
+
+    
     // Plot them
     upRatio->GetXaxis()->SetRangeUser(0., 20.);
     upRatio->SetMinimum(0);

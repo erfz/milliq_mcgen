@@ -74,6 +74,24 @@
     new_upRatio->SetLineStyle(10);
     new_downRatio->SetLineStyle(10);
 
+
+    // More stuff
+    upRatio->GetXaxis()->SetLabelSize(0.05);
+    upRatio->GetYaxis()->SetLabelSize(0.05);
+    // upRatio->SetTitleSize(2);
+    // c1->SetBottomMargin(0.2);
+    int lw = 3;
+    cenRatio->SetLineWidth(lw);
+    upRatio->SetLineWidth(lw);
+    downRatio->SetLineWidth(lw);
+    new_cenRatio->SetLineWidth(lw);
+    new_upRatio->SetLineWidth(lw);
+    new_downRatio->SetLineWidth(lw);
+
+
+
+
+    
     upRatio->SetMaximum(2.);
     upRatio->GetXaxis()->SetTitle("Pt (GeV/c)");
     if (psi) {
@@ -81,7 +99,7 @@
     } else {
       upRatio->SetTitle("Psiprime");
     }
-
+    
     // Plot them 
     upRatio->Draw("HIST");
     downRatio->Draw("HISTSAME");
@@ -90,11 +108,15 @@
     new_downRatio->Draw("HISTSAME");
     new_cenRatio->Draw("HISTSAME");
 
+
+
     // save to pdf
     if (psi) {
       c1->SaveAs("psi_fromB_Run2_Run3_comparison.pdf");
     } else {
       c1->SaveAs("psiprime_fromB_Run2_Run3_comparison.pdf");
     }
+
+    
   }
 }

@@ -1,19 +1,19 @@
 {
 
-  const char * r2file = "run2/c-to-mu.root";
-  const char * r3file = "run3/c-to-mu.root";
-  const char * pdfFile = "c-to-mu_Run2_Run3_comparison.pdf";
-  const char * title   = "c-to-mu";
+  // const char * r2file = "run2/c-to-mu.root";
+  // const char * r3file = "run3/c-to-mu.root";
+  // const char * pdfFile = "c-to-mu_Run2_Run3_comparison.pdf";
+  // const char * title   = "c-to-mu";
 
   // const char * r2file = "run2/b-to-mu.root";
   // const char * r3file = "run3/b-to-mu.root";
   // const char * pdfFile = "b-to-mu_Run2_Run3_comparison.pdf";
   // const char * title   = "b-to-mu";
 
-  // const char * r2file = "run2/b-to-c-to-mu.root";
-  // const char * r3file = "run3/b-to-c-to-mu.root";
-  // const char * pdfFile = "b-to-c-to-mu_Run2_Run3_comparison.pdf";
-  // const char * title   = "b-to-c-to-mu";
+  const char * r2file = "run2/b-to-c-to-mu.root";
+  const char * r3file = "run3/b-to-c-to-mu.root";
+  const char * pdfFile = "b-to-c-to-mu_Run2_Run3_comparison.pdf";
+  const char * title   = "b-to-c-to-mu";
 
   // Load Wouter's nice utility
   gROOT->ProcessLine(".L ../../oniaDirect/upsilon/histio.cc");
@@ -64,6 +64,24 @@
   upRatio->GetXaxis()->SetTitle("Pt (GeV/c)");
   upRatio->SetTitle(title);
 
+
+    // More stuff
+    upRatio->GetXaxis()->SetLabelSize(0.05);
+    upRatio->GetYaxis()->SetLabelSize(0.05);
+    // upRatio->SetTitleSize(2);
+    // c1->SetBottomMargin(0.2);
+    int lw = 3;
+    cenRatio->SetLineWidth(lw);
+    upRatio->SetLineWidth(lw);
+    downRatio->SetLineWidth(lw);
+    new_cenRatio->SetLineWidth(lw);
+    new_upRatio->SetLineWidth(lw);
+    new_downRatio->SetLineWidth(lw);
+
+    upRatio->GetYaxis()->SetTitle(" ");
+
+
+  
   // Plot them 
   upRatio->Draw("HIST");
   downRatio->Draw("HISTSAME");
