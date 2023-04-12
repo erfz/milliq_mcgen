@@ -1,6 +1,6 @@
 \documentclass[12pt]{article}
 \usepackage[margin=1.0in]{geometry}
-%\usepackage{hyperref}
+% \usepackage{hyperref}
 \usepackage{amsmath}
 %\usepackage{amsmath}
 \usepackage{graphicx}
@@ -686,13 +686,13 @@ The procedure is the following:
 
 \subsection{J/$\psi$ and $\psi'$ from b-decays - Run 3}
 \label{sec:bpsi3}
-We use the exact method described in Section~\ref{sec:bpsi}, changing the center-of-mass energy
-from 13 to 13.6 TeV.  Note that for the Run 2 configuration we had used the CTEQ6.6 pfds,
-whereas for the Run 3 configuration we used the NNPDF30\_nlo\_as\_0118 pdfs.  The reason
+We use the same method described in Section~\ref{sec:bpsi}, changing the center-of-mass energy
+from 13 to 13.6 TeV.  Note that for the Run 2 configuration we had used the CTEQ6.6 PDFs,
+whereas for the Run 3 configuration we now use the NNPDF30\_nlo\_as\_0118 PDFSs.  The reason
 for this is simply that the CTEQ6.6 pdf is not an option in the \\
-http://www.lpthe.jussieu.fr/~cacciari/fonll/fonllform.html \\
+http://www.lpthe.jussieu.fr/~cacciari/fonll/fonllform.html
      tool for 13.6 TeV.  Comparisons of Run 2 vs. Run 3 cross-sectiosn as a function
-     of $P_T$ are shhown in Figure~\ref{fig:psi_run_comparison} 
+     of $P_T$ are shown in Figure~\ref{fig:psi_run_comparison} 
 
    \begin{figure}[H]
   \begin{center}
@@ -700,42 +700,43 @@ http://www.lpthe.jussieu.fr/~cacciari/fonll/fonllform.html \\
     \includegraphics[width=0.49\linewidth]{../oniaFromB/psiprime_fromB_Run2_Run3_comparison.pdf}   
     \caption{\protect Run 2 vs. Run 3 comparisons of the J/$\psi$ (left) and 
       $\psi'$ (right) $P_T$ spectra 
-      from b-decays.  The blue band is the Run2 variation as a function of Pt from the central value. 
+      from b-decays.  The blue band is the Run 2 variation as a function of $P_T$ from the central value. 
 (Dashed blue = up/down divided by central, Solid blue = central = 1.0). 
 The red band is the ratio of the central Run 3 spectrum to the central Run2 spectrum. 
 (Dashed red = up/down Run 3 divided by Run 2 central, Solid red = Run 3 central/Run 2 central) 
-Note that the PDFs have changed between Run2 and Run3.  See text for details.}
+Note that the PDFs have changed between Run 2 and Run 3.  See text for details.}
 \label{fig:psi_run_comparison}
 \end{center}
 \end{figure}
-
-\clearpage
 
 \subsection{Direct bottonium - Run 3}
 \label{sec:upsilon3}
 The quadratic functions from Figure~\ref{fig:upsratio} were used to extrapolate
 the LHCb 7 TeV data to 13 TeV (see discussion in Section~\ref{sec:upsilon}).
 We use these same functions to (linearly) further extrapolate 
-the direct bottonium 13 TeV $P_T$ spectra in Figure~\ref{fig:upsFinal} up to 13.6 TeV.
+the direct bottonium 13 TeV $P_T$ spectra in Figure~\ref{fig:upsFinal} up to 13.6 TeV. \\
 
-{\bf HOWEVER:} The $P_T$ spectrum used in the generation of the events
-was within $|y|<1.2$.  The event generation assumed a flat rapidity
-spectrum, which is a good assumption, but it also assumed $\eta = y$ which
-is not a good  assumption at low $P_T$.  (Suffices to say that at
-$P_T=0$ the polar angle $\theta=\pm \pi$).  If $\frac{dN}{dy} = C$ is
-flat, then $\frac{dN}{d\eta}= C \frac{d\eta}{dy}$.  Since the milliqan
+{\bf HOWEVER:} The $P_T$ specta to be used in the generation of the events
+are within $|y|<1.2$.  The event generation assumed flat rapidity
+spectra.   This is a good assumption\footnote{The Lorentz invariant phase
+  space factor is  $d^4p~\delta(p^2-M^2)~\Theta(E) = d^3p/2E =
+  p_t~dp_T~dp_z~d\phi/2E = \pi p_t~dp_t~dp_z/E = \pi~dp^2_T~dp_z/2E = \frac{1}{2} dp^2_T~dy $},
+but it also assumed $\eta = y$ which
+is not a good  approximation at low $P_T$.  (Suffices to say that at
+$P_T=0$ the polar angle $\theta=\pm \pi$).  If $\frac{d\sigma}{dy} = C$ is
+flat, then $\frac{d\sigma}{d\eta}= C \frac{d\eta}{dy}$.  Since the milliqan
 detector is at $\eta=0.11$, we now also rescale the bottonium spectra
-by an addotional factor of $\frac{d\eta}{dy}$ evaluated at $\eta=0.11$.
+by an additional factor of $\frac{d\eta}{dy}$ evaluated at $\eta=0.11$.
 
 The factor $\frac{d\eta}{dy}$ evaluated at $\eta=0.11$ depends on
-the mass and the $p_T$.  This factor is shown in
-Fig.~\ref{fig:detady} for $\Upsilon$(1S) and $J\psi$ as a function of $p_T$.
-The total Run 2 to Run 3 scale factors are
+mass and $P_T$.  This factor is shown in
+Fig.~\ref{fig:detady} for $\Upsilon$(1S) and $J/\psi$ as a function of $P_T$.
+The overall Run 2 to Run 3 scale factors are
 displayed in Figure~\ref{fig:ups_run_2_run_3_sf}.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.65\linewidth]{../misc/deta-dy.pdf}
+    \includegraphics[width=1.0\linewidth]{../misc/deta-dy.pdf}
     \caption{\protect $\frac{d\eta}{dy}$ evaluated at $\eta=0.11$ as a
     function of $P_T$}
 \label{fig:detady}
@@ -744,7 +745,7 @@ displayed in Figure~\ref{fig:ups_run_2_run_3_sf}.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.70\linewidth]{../oniaDirect/upsilon/Run2_to_Run3_scale.pdf}
+    \includegraphics[width=1.0\linewidth]{../oniaDirect/upsilon/Run2_to_Run3_scale.pdf}
     \caption{\protect Run 2 to Run 3 scale factors for $\Upsilon$ production.  These 
       are further extrapolations from the LHCb 7 to 13 TeV ratios 
       of Figure~\ref{fig:upsratio} and include $\frac{d\eta}{dy}$
@@ -761,11 +762,11 @@ displayed in Figure~\ref{fig:ups_run_2_run_3_sf}.
 As was done for Run 2 (Section~\ref{sec:psidirect}) we take the charmonium spectra from theory.  However in the process
 of updating to the Run 3 calculation (provided to us again by
 Yan-Qing Ma, yqma@pku.edu.cn) we found that due to a miscommunication the $P_T$ spectra that we
-were profided where in a rapidity ($y$) instead of peudo-rapidity ($\eta$) range.  This then
-will necessitate a correction for $\frac{d\eta}{dy}$, which will suppress the
-effective cross-section at low $P_T$, as discussed in
-Section~\ref{sec:upsilon3}.  Furthermore, the $P_T$ spectra were generated with two
-different calculations, one appropriate for low $P_T$ and one appropriate for high $P_T$.  We
+were provided were in a rapidity ($y$) instead of peudo-rapidity ($\eta$) range.  This then
+necessitates a correction for $\frac{d\eta}{dy}$, which will suppresses the
+effective cross-section at low $P_T$, as shown in Fig.~\ref{fig:detady}.
+Furthermore, the $P_T$ spectra were generated with two
+different theoretical calculations, one appropriate for low $P_T$ and one appropriate for high $P_T$.  We
 have now improved the matching between the low and high $P_T$ spectra (Fig.~\ref{fig:psi-hi-low-match}).
 The overall changes from Run 2 are summarized in Fig.\ref{fig:psi_direct_run_comparison}
 
@@ -869,9 +870,9 @@ interact as soon as they enter the HCAL).
 
 The $P_T$ spectrum of decyed muons is collected in a histograms of
 ``muons per mimimum bas event per 50 MeV'' in $|\eta|<2$.
-Before propagation, this spectrum is rescaled to $|\eta|<1$
+Before propagation to the milliqan detector, this spectrum is rescaled to $|\eta|<1$
 through a multiplication by 1.13/2 where the factor of 1.13 was
-derived in Run2 from a MC study\footnote{Details of this study have been lost.}.
+derived in Run 2 from a MC study\footnote{Details of this study have been lost.}.
 The decay-in-flight muon spectrum and the Run 3 to Run 2 comparison is
 shown in Fig.~\ref{fig:dof_muons}.
 

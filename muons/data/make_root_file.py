@@ -44,11 +44,16 @@ for i in range(new_cn.size):
     h_up.SetBinContent(i+1, new_up[i])
     h_dn.SetBinContent(i+1, new_dn[i])
 
-fout = r.TFile(fin.replace(".txt",".root"), "RECREATE")
-h_cn.Write()
-h_up.Write()
-h_dn.Write()
-fout.Close()
+blah = input("Enter y if you want to save the root file  ")
+if blah == 'y':
+    print("Saving root file in ",  fin.replace(".txt",".root"))
+    fout = r.TFile(fin.replace(".txt",".root"), "RECREATE")
+    h_cn.Write()
+    h_up.Write()
+    h_dn.Write()
+    fout.Close()
+else:
+    print("no root file for you")
 
 
 # As a bonus, plot it as well
@@ -62,8 +67,8 @@ ax.set_xlim(0, 300)
 ax.tick_params("both", direction='in', length=10, right=True, top=True)
 ax.tick_params("both", direction='in', length=7, right=True, which='minor')
 ax.set_yscale('log')
-ax.set_xlabel('Pt (Gev)')
-ax.set_ylabel('dsigma/dpt (pb/GeV)')
+ax.set_xlabel('Pt (Gev)', fontsize='xx-large')
+ax.set_ylabel('d$\sigma$/dpt (pb/GeV)', fontsize='xx-large')
 
 # File name with extension but without path
 f1 = os.path.basename(fin)
@@ -72,7 +77,11 @@ f2, _ = os.path.splitext(fin)
 # file name without extension and without path
 f3, _ = os.path.splitext(f1)
 
-ax.set_title(f3)
+ax.set_title(f3, fontsize='xx-large')
+ax.grid()
+plt.yticks(fontsize='x-large')
+plt.xticks(fontsize='x-large')
+plt.tight_layout()
 fig.show()
 
 figFile = f2 + ".pdf" 
