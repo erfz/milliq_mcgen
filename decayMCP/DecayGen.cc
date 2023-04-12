@@ -83,7 +83,11 @@ int DecayGen::Initialize(int decay_mode, float m_mCP, bool isRun3){
         FixHistogram(h_dn);
     }else if(decay_mode >= 3 && decay_mode <= 10){
         // direct production of pi, rho, omega, phi, eta, etaprime
-        finfo = new TFile((BASE_DIR+"/mesonPt/pt_dists.root").c_str());
+        if (isRun3) {
+	  finfo = new TFile((BASE_DIR+"/mesonPt/pt_dists_run3.root").c_str());
+	} else {
+	  finfo = new TFile((BASE_DIR+"/mesonPt/pt_dists_run2.root").c_str());
+	}
         if(decay_mode == 3){
             // rho -> mCP mCP
             h_cn = (TH1D*)finfo->Get("h_rho");
@@ -150,12 +154,20 @@ int DecayGen::Initialize(int decay_mode, float m_mCP, bool isRun3){
         // direct onia (ccbar and bbbar) production
         if(decay_mode == 11){
             // direct J/psi
-            finfo = new TFile((BASE_DIR+"/oniaDirect/CMS-13-TeV/theory/psiLowPt/merged_jpsi.root").c_str());
+	    if (run3) {
+	      finfo = new TFile((BASE_DIR+"/oniaDirect/13p6Tev/merged_jpsi_run3.root").c_str());
+	    } else {
+	      finfo = new TFile((BASE_DIR+"/oniaDirect/CMS-13-TeV/theory/psiLowPt/merged_jpsi.root").c_str());
+	    }
             parent_pdgId = 443;
             m_parent = 3.0969;
         }else if(decay_mode == 12){
             // direct psi(2S)
-            finfo = new TFile((BASE_DIR+"/oniaDirect/CMS-13-TeV/theory/psiLowPt/merged_psiprime.root").c_str());
+	    if (run3) {
+	      finfo = new TFile((BASE_DIR+"/oniaDirect/13p6Tev/merged_psiprime_run3.root").c_str());
+	    } else {
+	      finfo = new TFile((BASE_DIR+"/oniaDirect/CMS-13-TeV/theory/psiLowPt/merged_psiprime.root").c_str());
+	    }
             parent_pdgId = 100443;
             m_parent = 3.6861;
         }else if(decay_mode == 13){
