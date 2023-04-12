@@ -1,6 +1,6 @@
 \documentclass[12pt]{article}
 \usepackage[margin=1.0in]{geometry}
-\usepackage{hyperref}
+%\usepackage{hyperref}
 \usepackage{amsmath}
 %\usepackage{amsmath}
 \usepackage{graphicx}
@@ -292,8 +292,7 @@ and moderate $p_T$ since that is where the cross-section is largest.
 \subsection{J/$\psi$ and $\psi'$ from b-decays}
 \label{sec:bpsi}
 We use the tool available in \\
-\href{http://www.lpthe.jussieu.fr/~cacciari/fonll/fonllform.html}
-{http://www.lpthe.jussieu.fr/~cacciari/fonll/fonllform.html} \\
+http://www.lpthe.jussieu.fr/~cacciari/fonll/fonllform.html \\
 to
 generate histograms of $p_T$ distributions (cross-sections) for charmonium from 
 bottom decays, including theoretical 
@@ -691,17 +690,15 @@ We use the exact method described in Section~\ref{sec:bpsi}, changing the center
 from 13 to 13.6 TeV.  Note that for the Run 2 configuration we had used the CTEQ6.6 pfds,
 whereas for the Run 3 configuration we used the NNPDF30\_nlo\_as\_0118 pdfs.  The reason
 for this is simply that the CTEQ6.6 pdf is not an option in the \\
-\href{http://www.lpthe.jussieu.fr/~cacciari/fonll/fonllform.html}
-     {http://www.lpthe.jussieu.fr/~cacciari/fonll/fonllform.html} 
+http://www.lpthe.jussieu.fr/~cacciari/fonll/fonllform.html \\
      tool for 13.6 TeV.  Comparisons of Run 2 vs. Run 3 cross-sectiosn as a function
      of $P_T$ are shhown in Figure~\ref{fig:psi_run_comparison} 
 
-     \begin{figure}[H]
+   \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.45\linewidth]{../oniaFromB/psi_fromB_Run2_Run3_comparison.pdf}
-    \includegraphics[width=0.45\linewidth]{../oniaFromB/psiprime_fromB_Run2_Run3_comparison.pdf}
-    
-    \caption{\protect Run 2 vs. Run 3 comparisons of of the J/$\psi$ (left) and 
+    \includegraphics[width=0.49\linewidth]{../oniaFromB/psi_fromB_Run2_Run3_comparison.pdf}
+    \includegraphics[width=0.49\linewidth]{../oniaFromB/psiprime_fromB_Run2_Run3_comparison.pdf}   
+    \caption{\protect Run 2 vs. Run 3 comparisons of the J/$\psi$ (left) and 
       $\psi'$ (right) $P_T$ spectra 
       from b-decays.  The blue band is the Run2 variation as a function of Pt from the central value. 
 (Dashed blue = up/down divided by central, Solid blue = central = 1.0). 
@@ -738,16 +735,16 @@ displayed in Figure~\ref{fig:ups_run_2_run_3_sf}.
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.70\linewidth]{../misc/deta-dy.pdf}
+    \includegraphics[width=0.65\linewidth]{../misc/deta-dy.pdf}
     \caption{\protect $\frac{d\eta}{dy}$ evaluated at $\eta=0.11$ as a
-    gunction of $P_T$}
+    function of $P_T$}
 \label{fig:detady}
 \end{center}
 \end{figure}
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.95\linewidth]{../oniaDirect/upsilon/Run2_to_Run3_scale.pdf}
+    \includegraphics[width=0.70\linewidth]{../oniaDirect/upsilon/Run2_to_Run3_scale.pdf}
     \caption{\protect Run 2 to Run 3 scale factors for $\Upsilon$ production.  These 
       are further extrapolations from the LHCb 7 to 13 TeV ratios 
       of Figure~\ref{fig:upsratio} and include $\frac{d\eta}{dy}$
@@ -757,7 +754,46 @@ displayed in Figure~\ref{fig:ups_run_2_run_3_sf}.
 \end{center}
 \end{figure}
 
-% \clearpage
+\clearpage
+
+\subsection{Direct Charmonium - Run 3}
+\label{sec:psidirect3}
+As was done for Run 2 (Section~\ref{sec:psidirect}) we take the charmonium spectra from theory.  However in the process
+of updating to the Run 3 calculation (provided to us again by
+Yan-Qing Ma, yqma@pku.edu.cn) we found that due to a miscommunication the $P_T$ spectra that we
+were profided where in a rapidity ($y$) instead of peudo-rapidity ($\eta$) range.  This then
+will necessitate a correction for $\frac{d\eta}{dy}$, which will suppress the
+effective cross-section at low $P_T$, as discussed in
+Section~\ref{sec:upsilon3}.  Furthermore, the $P_T$ spectra were generated with two
+different calculations, one appropriate for low $P_T$ and one appropriate for high $P_T$.  We
+have now improved the matching between the low and high $P_T$ spectra (Fig.~\ref{fig:psi-hi-low-match}).
+The overall changes from Run 2 are summarized in Fig.\ref{fig:psi_direct_run_comparison}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=1.0\linewidth]{../oniaDirect/13p6TeV/charmonium_run3.pdf}
+    \caption{\protect The direct charmonium spectra from theory.  We show the theoretical
+      calculations for high and low $P_T$, as well as our combinations.}
+\label{fig:psi-hi-low-match}
+\end{center}
+\end{figure}
+
+   \begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.49\linewidth]{../oniaDirect/13p6TeV/jpsi_direct_Run2_Run3_comparison.pdf}
+    \includegraphics[width=0.49\linewidth]{../oniaDirect/13p6TeV/psiprime_direct_Run2_Run3_comparison.pdf}   
+    \caption{\protect Run 2 vs. Run 3 comparisons of the direct J/$\psi$ (left) and 
+      $\psi'$ (right) $P_T$ spectra.  See Fig.~\ref{fig:psi_run_comparison} for an explanation of
+    the colored bands.} 
+\label{fig:psi_direct_run_comparison}
+\end{center}
+\end{figure}
+
+
+\clearpage
+
+
+
 \subsection{$\pi^0$, $\eta$, $\eta'$, $\phi$, $\rho$, and $\omega$ -
   Run 3}
 \label{sec:mesons3}
@@ -851,8 +887,8 @@ in Section~\ref{sec:bpsi3}.}
 \bibitem{landsberg}  L. G. Landsberg, Phys. Rep. 128, 301 (1985). 
 
 \bibitem{bib:ulrik}
-  See for example \href{http://cds.cern.ch/record/683210/files/soft-96-032.pdf}
-{http://cds.cern.ch/record/683210/files/soft-96-032.pdf}.
+  See for example http://cds.cern.ch/record/683210/files/soft-96-032.pdf
+
 
 \bibitem{VR1}
 Aloni, D., Efrati, A., Grossman, Y. et al. J. High Energ. Phys. (2017) 2017: 19. 
@@ -1053,8 +1089,8 @@ Aloni, D., Efrati, A., Grossman, Y. et al. J. High Energ. Phys. (2017) 2017: 19.
   %25 citations counted in INSPIRE as of 20 Jun 2019
    
 \bibitem{wwwPythia}
-\href{http://home.thep.lu.se/\~torbjorn/pythia81php/Welcome.php}
-{http://home.thep.lu.se/\~torbjorn/pythia81php/Welcome.php}.  Click on 
+http://home.thep.lu.se/\~torbjorn/pythia81php/Welcome.php
+Click on 
 {\tt QCD} on the left panel.
 
 \bibitem{Atlas:ppxsec}

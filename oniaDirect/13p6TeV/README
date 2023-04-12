@@ -1,0 +1,29 @@
+psi_below_8GeV.txt psiprime_below_8GeV.txt
+------------------------------------------
+Text files from theorists at low pt for abs(y)<1.0
+
+psi_6GeV_and_up.txt psiprime_6GeV_and_up.txt
+-----------------------------------------------
+Text files from theorists at higher pt for abs(y)<1.2
+
+charmonium_run3.pdf
+---------------------
+A plot of the spectrum from the four text file above, including our combination
+
+merged_jpsi_run3.root merged_psiprime_run3.root
+------------------------------------------------
+The combined spectra in charmonium_run3.pdf but including a correction
+for eta vs y.
+
+merge_run3.ipynb
+-----------------
+Input:  the four text files above
+Output: the two root files above and charmonium_run3.pdf
+
+compare_Run2_Run3.C
+-------------------
+A root script to compare the two root files above with the equivalent from run 2
+
+jpsi_direct_Run2_Run3_comparison.pdf psiprime_direct_Run2_Run3_comparison.pdf
+------------------------------------------------------------------------------
+Output of the root script above
