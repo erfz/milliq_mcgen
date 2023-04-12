@@ -86,7 +86,7 @@ int DecayGen::Initialize(int decay_mode, float m_mCP, bool isRun3){
         if (isRun3) {
 	  finfo = new TFile((BASE_DIR+"/mesonPt/pt_dists_run3.root").c_str());
 	} else {
-	  finfo = new TFile((BASE_DIR+"/mesonPt/pt_dists_run2.root").c_str());
+	  finfo = new TFile((BASE_DIR+"/mesonPt/pt_dists.root").c_str());
 	}
         if(decay_mode == 3){
             // rho -> mCP mCP

@@ -2,6 +2,7 @@
 #include <utility>
 #include <iostream>
 #include <string>
+#include <cstdlib>
 
 #include "TFile.h"
 #include "TRandom.h"
@@ -36,12 +37,17 @@ string GetName(int mode){
 
 int init(int production_mode, MCPTree &outtree){
     TFile *f;
+
+    bool run3 = true;
     
     if(production_mode == 1){
         // f = new TFile("data/QCD_CutPtSpect_v2.root");
         // h_pt = (TH1D*)f->Get("pt");
-
-        f = new TFile("data/bc-incl-to-mu.root");
+        if (run3) {
+	  f = new TFile("data/run3/bc-incl-to-mu.root");
+	} else {
+	  f = new TFile("data/run2/bc-incl-to-mu.root");
+	}
         h_pt = (TH1D*)f->Get("central");
         h_up = (TH1D*)f->Get("up");
         h_dn = (TH1D*)f->Get("down");
@@ -60,22 +66,35 @@ int init(int production_mode, MCPTree &outtree){
         outtree.xsec *= (MUON_PHIMAX - MUON_PHIMIN) / (2*3.14159265);
 
     }else if(production_mode == 2){
-        f = new TFile("data/WJets_CutPtSpect_v2.root");
+        if (run3) {
+	  std::cout << "Wjets not implemented for Run 3 yet" << std::endl;
+	  std::abort();
+	} else {
+	  f = new TFile("data/WJets_CutPtSpect_v2.root");
+	}
         h_pt = (TH1D*)f->Get("pt");
         outtree.xsec = h_pt->Integral() / 1000;
         // This includes eta [-0.025, 0.025];
         outtree.xsec *= (MUON_ETAMAX - MUON_ETAMIN) / (2*0.025);
         outtree.xsec *= (MUON_PHIMAX - MUON_PHIMIN) / (2*3.14159265);
     }else if(production_mode == 3){
-        f = new TFile("data/DY_CutPtSpect_v2.root");
+        if (run3) {
+	  std::cout << "DY not implemented for Run 3 yet" << std::endl;
+	  std::abort();
+	} else {
+	  f = new TFile("data/DY_CutPtSpect_v2.root");
+	}
         h_pt = (TH1D*)f->Get("pt");
         outtree.xsec = h_pt->Integral() / 1000;
         // This includes eta [-0.025, 0.025];
         outtree.xsec *= (MUON_ETAMAX - MUON_ETAMIN) / (2*0.025);
         outtree.xsec *= (MUON_PHIMAX - MUON_PHIMIN) / (2*3.14159265);
     }else if(production_mode == 4){
-
-        f = new TFile("../mesonPt/pt_dists.root");
+        if (run3) {
+	  f = new TFile("../mesonPt/pt_dists_run3.root");
+	} else {
+	  f = new TFile("../mesonPt/pt_dists.root");
+	}
         h_pt = (TH1D*)f->Get("h_mu_nonbc");
         // zero out bins below pT threshold
         for(int i=1; i<=h_pt->GetNbinsX(); i++){
