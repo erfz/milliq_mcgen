@@ -1,5 +1,5 @@
 Takes the output of `decayMCP/runDecays` and propagates mCPs through CMS environment,
-using the [MilliqanSim](https://github.com/bjmarsh/MilliqanSim/tree/master) package.
+using the [MilliqanSim](https://github.com/claudiocc1/MilliqanSim) package.
 Adds branches to the tree indicating position and momentum upon intersection with the detector.
 
 Run `. setup.sh` to download the MilliqanSim repository (if this hasn't been done yet)
