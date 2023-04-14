@@ -8,17 +8,20 @@ and set the correct `PYTHONPATH` environment variable.
 There are configurable parameters at the top of `run_sim.py` that control the location
 and size of the detector, as well as various simulation parameters.
 
-After setting up, run with `python run_sim.py --config <cfg_name='MQ'> --charge <charge> <input_file>`, where `cfg_name`
-is the name of the setup config ("MQ" for default milliqan, more are defined in `configs.py`), and
-`charge` is the charge of the mCPs you want to simulate. This will propagate all of the mCPs, add branches
+After setting up, run with `python3 run_sim.py --config <cfg_name='MQ3'> --charge <charge> <input_file>`, where `cfg_name`
+is the name of the setup config ("MQ3" for default milliqan, more are defined in `configs.py`), and
+`charge` is the charge of the mCPs you want to simulate or "mu" if you want to run muons as oppsed to mCP.
+This will propagate all of the mCPs (or muons), add branches
 to the tree, throw away events where there were no hits, and output to `output.root`.
 Other optional arguments are `--density-mult <mult>`, which scales the density of all materials uniformly
 by `mult` (used for deriving a material systematic), and `--save_dist <dist>`, which is the distance
-in meters in front of the detector face to save the particle trajectories (we use 2 m for feeding into Geant).
+in meters in front of the detector face to save the particle trajectories (we use 2 m for feeding into Geant, but
+defaults to 0.1).
 
 This was very slow, but has been sped up considerably by the integration of [numba](https://numba.pydata.org) into the python looping. It runs at close to 100 Hz now.
 
-By default, the `run_sim.py` script is set up to only save events where at least one mCP hits a 1m x 1m square around the Milliqan detector face (i.e. `does_hit_p || does_hit_m`, if using the branch names below).
+By default, the `run_sim.py` script is set up to only save events where at least one mCP hits a 1m x 1m square around the Milliqan detector face (i.e. `does_hit_p || does_hit_m`, if using the branch names below).  This 1m x 1m is defined at the top of
+configs.py
 
 **Coordinates:** coordinates used for the position/momentum of hit are *not* in CMS coordinates.
 x and y are parallel to the Milliqan detector face (x in the phi-hat direction, or vertically when standing in gallery,
