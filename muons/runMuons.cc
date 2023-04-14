@@ -12,9 +12,10 @@
 
 /********************* 
   PRODUCTION MODES
-  1. QCD
+  1. Heavy Flavor
   2. W
   3. Drell-Yan
+  4. Decays in flight
 *********************/
 
 const float MINBIAS_XSEC = (69.2e-3) * 1e12; // 69.2 mb converted to pb
