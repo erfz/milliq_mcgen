@@ -1,4 +1,4 @@
-Takes the output of `decayMCP/runDecays` and propagates mCPs through CMS environment,
+Takes the output of `decayMCP/runDecays` or `muons/runMuons` and propagates mCPs or muons through CMS environment,
 using the [MilliqanSim](https://github.com/claudiocc1/MilliqanSim) package.
 Adds branches to the tree indicating position and momentum upon intersection with the detector.
 
