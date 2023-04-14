@@ -45,9 +45,9 @@ int init(int production_mode, MCPTree &outtree){
         // f = new TFile("data/QCD_CutPtSpect_v2.root");
         // h_pt = (TH1D*)f->Get("pt");
         if (run3) {
-	  f = new TFile("data/run3/b-incl-to-mu.root");
+	  f = new TFile("data/run3/bc-incl-to-mu.root");
 	} else {
-	  f = new TFile("data/run2/b-incl-to-mu.root");
+	  f = new TFile("data/run2/bc-incl-to-mu.root");
 	}
         h_pt = (TH1D*)f->Get("central");
         h_up = (TH1D*)f->Get("up");
