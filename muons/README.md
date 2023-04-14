@@ -38,4 +38,4 @@ in the case that the sample is split over many files (see above)
 
 ### Grid submission
 
-I've now added scripts to `batchsubmit` to do all of the above with a single condor submission, allowing for larger samples and far less babysiting. See instructions there.
+I've now added scripts to `localbatch` to do all of the above with a single condor submission, allowing for larger samples and far less babysiting. See instructions there.
