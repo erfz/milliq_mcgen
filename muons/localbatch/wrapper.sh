@@ -19,31 +19,22 @@ echo "[wrapper] COPYDIR   = " ${COPYDIR}
 echo
 echo "[wrapper] uname -a:" `uname -a`
 
-if [ -r "$OSGVO_CMSSW_Path"/cmsset_default.sh ]; then
-    echo "sourcing environment: source $OSGVO_CMSSW_Path/cmsset_default.sh"
-    source "$OSGVO_CMSSW_Path"/cmsset_default.sh
-elif [ -r "$OSG_APP"/cmssoft/cms/cmsset_default.sh ]; then
-    echo "sourcing environment: source $OSG_APP/cmssoft/cms/cmsset_default.sh"
-    source "$OSG_APP"/cmssoft/cms/cmsset_default.sh
-elif [ -r /cvmfs/cms.cern.ch/cmsset_default.sh ]; then
-    echo "sourcing environment: source /cvmfs/cms.cern.ch/cmsset_default.sh"
-    source /cvmfs/cms.cern.ch/cmsset_default.sh
-else
-    echo "ERROR! Couldn't find $OSGVO_CMSSW_Path/cmsset_default.sh or /cvmfs/cms.cern.ch/cmsset_default.sh or $OSG_APP/cmssoft/cms/cmsset_default.sh"
-    exit 1
-fi
+#if [ -r "$OSGVO_CMSSW_Path"/cmsset_default.sh ]; then
+#    echo "sourcing environment: source $OSGVO_CMSSW_Path/cmsset_default.sh"
+#    source "$OSGVO_CMSSW_Path"/cmsset_default.sh
+#elif [ -r "$OSG_APP"/cmssoft/cms/cmsset_default.sh ]; then
+#    echo "sourcing environment: source $OSG_APP/cmssoft/cms/cmsset_default.sh"
+#    source "$OSG_APP"/cmssoft/cms/cmsset_default.sh
+#elif [ -r /cvmfs/cms.cern.ch/cmsset_default.sh ]; then
+#    echo "sourcing environment: source /cvmfs/cms.cern.ch/cmsset_default.sh"
+#    source /cvmfs/cms.cern.ch/cmsset_default.sh
+#else
+#    echo "ERROR! Couldn't find $OSGVO_CMSSW_Path/cmsset_default.sh or /cvmfs/cms.cern.ch/cmsset_default.sh or $OSG_APP/cmssoft/cms/cmsset_default.sh"
+#    exit 1
+#fi
+source /cvmfs/cms.cern.ch/cmsset_default.sh  > /dev/null 2>&1
 
-#
-# set up environment
-#
-# if [[ `uname -a` = *"el6"* ]]; then
-#     export SCRAM_ARCH=slc6_amd64_gcc630
-#     CMSSW_VERSION=CMSSW_9_4_14
-# fi
-# if [[ `uname -a` = *"el7"* ]]; then
-#     export SCRAM_ARCH=slc6_amd64_gcc700
-#     CMSSW_VERSION=CMSSW_10_2_15
-# fi
+
 export SCRAM_ARCH=slc6_amd64_gcc630
 CMSSW_VERSION=CMSSW_9_4_14
 
@@ -52,12 +43,9 @@ echo "[wrapper] CMSSW_VERSION" $CMSSW_VERSION
 
 ###version using cvmfs install of CMSSW
 echo "[wrapper] setting env"
-# source /cvmfs/cms.cern.ch/cmsset_default.sh
-OLDDIR=`pwd`
-cd /cvmfs/cms.cern.ch/$SCRAM_ARCH/cms/cmssw/$CMSSW_VERSION/src
-#cmsenv
-eval `scramv1 runtime -sh`
-cd $OLDDIR
+cd /cvmfs/cms.cern.ch/$SCRAM_ARCH/cms/cmssw/$CMSSW_VERSION/
+cmsenv
+cd -
 
 echo
 
@@ -71,7 +59,7 @@ echo "[wrapper] linux timestamp = " `date +%s`
 
 TMPDIR=output_${DECAYMODE}${FILEID}
 mkdir $TMPDIR
-cp input.tar.xz $TMPDIR
+mv input.tar.xz $TMPDIR
 cd $TMPDIR
 
 echo "[wrapper] extracting input sandbox"
@@ -81,6 +69,7 @@ echo "[wrapper] input contents are"
 ls -a
 
 cd muons
+
 
 #
 # run it
@@ -109,7 +98,9 @@ if [ ! -d "${COPYDIR}" ]; then
     mkdir ${COPYDIR}
 fi
 
-env -i X509_USER_PROXY=${X509_USER_PROXY} gfal-copy -p -f -t 4200 --verbose file://`pwd`/$OUTFILE gsiftp://gftp.t2.ucsd.edu${COPYDIR}/output_${FILEID}.root
+substr="/ceph/cms"
+COPYDIR_CEPH=${COPYDIR#$substr}
+env -i X509_USER_PROXY=${X509_USER_PROXY} gfal-copy -p -f -t 4200 --verbose  --checksum ADLER32 file://`pwd`/$OUTFILE davs://redirector.t2.ucsd.edu:1095/${COPYDIR_CEPH}/output_${FILEID}.root
 
 echo "[wrapper] cleaning up"
 cd ../..
