@@ -18,7 +18,7 @@
   4. Decays in flight
 *********************/
 
-const float MINBIAS_XSEC = (69.2e-3) * 1e12; // 69.2 mb converted to pb
+const float MINBIAS_XSEC = (78.42e-3) * 1e12; //from "cross_section" : https://cms-pdmv.cern.ch/mcm/public/restapi/requests/get/PPD-2022CommissionGS-00001
 
 float MUON_ETAMIN = 0.11 - 0.10;
 float MUON_ETAMAX = 0.11 + 0.10;

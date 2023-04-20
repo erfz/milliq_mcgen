@@ -858,6 +858,9 @@ in Section~\ref{sec:bpsi3}.}
   \label{fig:bmuon23}
 \end{figure}
 
+\subsubsection{Normalisation}
+Muons from heavy flavour QCD are then generated based on their $p_{T}$ spectrum from theoretical models. In terms of normalisation, we applied a scaling factor of 2 since the expected muon production occurs from a $b\overline{b}$ pair rather than just a single $b$ quark (for which the cross section is stored in the $p_{T}$ file). Also, the theoretical computation of the $\mu$ momenta is carried out over the boundaries: $-1 < \eta < 1$. For this reason, we apply a normalisation factor to account for the $\eta$ range of interest for the generation of muons, which is $ 0.01 < \eta < 0.21 $ see \href{https://github.com/claudiocc1/milliq\_mcgen/blob/master/muons/runMuons.cc#L23-L24}{here}, as SF=$ ( 0.21 - 0.01 )  / [ 1 - (-1) ]$. A similar procedure is applied to account for the limited $\phi$ coverage of the muon production to propagate to the milliQan detector, which yields a scaling factor SF=$ ( 0.33 - 0 ) / [ \pi - (-\pi) ]$.
+
 \subsection{Muons from pions and kaons decays in flight}
 \label{sec:decays-in-flight}
 These are generated with Pythia 8 in the same process that collects the
@@ -883,6 +886,11 @@ shown in Fig.~\ref{fig:dof_muons}.
   \label{fig:dof_muons}
 \end{figure}
 
+\subsubsection{Normalisation}
+Similarly to what described for muons from heavy flavour QCD, also $\mu$s from light QCD processes need to be renormalised. 
+The total normalisation of the light meson $p_{T}$ distribution is given in "muons per minbias event", since each bin from this histogram is "muons per minbias event per 50 MeV bin". So we get the total cross section for this process by taking the integral of the $p_{T}$ profile and multiply it by the minimum bias cross section, about 78mb taken from the "cross section" entry \href{https://cms-pdmv.cern.ch/mcm/public/restapi/requests/get/PPD-2022CommissionGS-00001}{here}.
+Since the initial light QCD production has been performed in the interval: $ - 2 < \eta < 2 $, and we use the same $\eta$ acceptance window as outlined in the heavy flavour QCD section ($ 0.01 < \eta < 0.21 $), we apply a scaling factor of: SF=$ ( 0.21 - 0.01 ) / [ 2 - (-2) ]$. The same SF is used for the $\phi$ acceptance window: SF=$ ( 0.33 - 0 ) / [ \pi - (-\pi) ]$. 
+Somehow, Bennett reported an additional scaling factor SF=1.13 to account for the non-uniformity in $\eta$ from MC. Although it is not possible for us to recompute such correction (the Monte Carlo has been lost), we still apply this additional normalisation factor. 
 
 \clearpage
 
