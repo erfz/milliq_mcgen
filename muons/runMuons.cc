@@ -20,10 +20,10 @@
 
 const float MINBIAS_XSEC = (78.42e-3) * 1e12; //from "cross_section" : https://cms-pdmv.cern.ch/mcm/public/restapi/requests/get/PPD-2022CommissionGS-00001
 
-float MUON_ETAMIN = 0.11 - 0.10;
-float MUON_ETAMAX = 0.11 + 0.10;
-float MUON_PHIMIN = 0.0;
-float MUON_PHIMAX = 0.33;
+float MUON_ETAMIN = 0.11 - 0.20;
+float MUON_ETAMAX = 0.11 + 0.20;
+float MUON_PHIMIN = -0.15;
+float MUON_PHIMAX = 0.45;
 float MUON_PTMIN = 13.0;
 
 TH1D *h_pt=0, *h_up=0, *h_dn=0;
