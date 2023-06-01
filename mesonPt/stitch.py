@@ -30,7 +30,7 @@ nev_q4 = fq4.Get("h_nevents").GetBinContent(1)
 
 cuts = [10.0, 18.5, 30.0, 50.0]
 
-ps = ["pi","pi0","rho","omega","phi","eta","etap","mu","mu_nonbc"]
+ps = ["pi","pi0","rho","omega","phi","eta","etap","mu","mu_nonbc","kaon"]
 for p in ps:
     if p != "phi":
         hm = fm.Get("h_"+p)

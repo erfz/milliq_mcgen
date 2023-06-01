@@ -70,6 +70,7 @@ int main(int argc, char** argv) {
     pythia.readString("130:mayDecay = on");
     pythia.readString("211:mayDecay = on");
     pythia.readString("321:mayDecay = on");
+    pythia.readString("311:mayDecay = on"); // check docs maydecay
 
 
     // pythia8 common settings from CMSSW
@@ -118,6 +119,7 @@ int main(int argc, char** argv) {
     TH1D *h_mu = new TH1D("h_mu", ";p_{T} [GeV]",2000,0,100);
     TH1D *h_mu_nonbc = new TH1D("h_mu_nonbc", ";p_{T} [GeV]",2000,0,100);
     TH1D *h_mu_mother = new TH1D("h_mu_mother", ";mother id",6000,0.5,6000.5);
+    TH1D *h_kaon = new TH1D("h_kaon", ";p_{T} [GeV]",2000,0,100);
 
     // Begin event loop. Generate event. Skip if error. List first one.
     for (int iEvent = 0; iEvent < nevt; ++iEvent) {
@@ -143,6 +145,8 @@ int main(int argc, char** argv) {
                     h_eta->Fill(p.p().pT());
                 if (abs(p.id()) == 331)
                     h_etap->Fill(p.p().pT());
+                if (abs(p.id()) == 311)
+                    h_kaon->Fill(p.p().pT());
 
                 if(abs(p.id()) == 13 && p.status()==91){
                     int mid = pythia.event[p.mother1()].id();
@@ -170,6 +174,7 @@ int main(int argc, char** argv) {
     h_mu->Write();
     h_mu_nonbc->Write();
     h_mu_mother->Write();
+    h_kaon->Write();
     fout->Close();
 
     return 0;
