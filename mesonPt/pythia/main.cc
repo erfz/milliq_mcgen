@@ -120,6 +120,8 @@ int main(int argc, char** argv) {
     TH1D *h_mu_nonbc = new TH1D("h_mu_nonbc", ";p_{T} [GeV]",2000,0,100);
     TH1D *h_mu_mother = new TH1D("h_mu_mother", ";mother id",6000,0.5,6000.5);
     TH1D *h_kaon = new TH1D("h_kaon", ";p_{T} [GeV]",2000,0,100);
+    TH1D *h_kaon_short = new TH1D("h_kaon_short", ";p_{T} [GeV]",2000,0,100);
+    TH1D *h_kaon_long = new TH1D("h_kaon_long", ";p_{T} [GeV]",2000,0,100);
 
     // Begin event loop. Generate event. Skip if error. List first one.
     for (int iEvent = 0; iEvent < nevt; ++iEvent) {
@@ -147,6 +149,10 @@ int main(int argc, char** argv) {
                     h_etap->Fill(p.p().pT());
                 if (abs(p.id()) == 311)
                     h_kaon->Fill(p.p().pT());
+                if (abs(p.id()) == 310)
+                    h_kaon_short->Fill(p.p().pT());
+                if (abs(p.id()) == 130)
+                    h_kaon_long->Fill(p.p().pT());
 
                 if(abs(p.id()) == 13 && p.status()==91){
                     int mid = pythia.event[p.mother1()].id();
@@ -175,6 +181,8 @@ int main(int argc, char** argv) {
     h_mu_nonbc->Write();
     h_mu_mother->Write();
     h_kaon->Write();
+    h_kaon_short->Write();
+    h_kaon_long->Write();
     fout->Close();
 
     return 0;
